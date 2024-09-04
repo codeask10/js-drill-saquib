@@ -64,6 +64,26 @@ function getAllAges(arr){
     }
 }
 
-export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex,getAllAges};
+//   Create a function to retrieve and display the first hobby of each individual in the dataset.
+
+function getFirstHobby(arr){
+    try{
+        if(arr.length===0){
+            console.log("Empty array object");
+        }
+        let hobbies="";
+        for(const i in arr){
+            hobbies+=arr[i].hobbies[0]+ ", ";
+        }
+        console.log(hobbies.trim());
+    }
+    catch(error){
+        console.log(`Error: ${error}`);
+    }
+
+}
+
+
+export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex,getAllAges,getFirstHobby};
 
 
