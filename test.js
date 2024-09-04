@@ -1,5 +1,5 @@
 import arrayOfObjects from './person.js'
-import {getAllEmails,getHobbyByAge, getStudentName, getNameAndCityByIndex, getAllAges,getFirstHobby} from "./solution.js";
+import {getAllEmails,getHobbyByAge, getStudentName, getNameAndCityByIndex, getAllAges,getFirstHobby, getNameAndEmailByAge} from "./solution.js";
 
 
 //   Test cases
@@ -28,3 +28,8 @@ getAllAges();  // Error: TypeError: Cannot read properties of undefined (reading
 getFirstHobby(arrayOfObjects);  //reading, playing guitar, cooking, photography, yoga, playing basketball, painting, writing, playing piano, playing cricket,
 getFirstHobby([]);      //Empty array object
 getFirstHobby();    //Error: TypeError: Cannot read properties of undefined (reading 'length')
+
+
+getNameAndEmailByAge(arrayOfObjects,25);   //Name: Bob and Email: bob@example.com
+getNameAndEmailByAge(arrayOfObjects,50);   //Age:50 is not found
+
