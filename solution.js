@@ -15,8 +15,20 @@ function getHobbyByAge(arr,age){
             return arr[object].hobbies;
         }
     }
-    return "Specific age not found"
+    return "Specific age not found";
 }
-export  { getAllEmails,getHobbyByAge};
+
+//    Create a function that extracts and displays the names of individuals who are students (`isStudent: true`) and live in Australia.
+
+function getStudentName(arr,live){
+    for(const object in arr){
+        if(arr[object].isStudent===true && arr[object].country===live){
+            return arr[object].name;
+        }
+    }
+    return "Name not found";
+}
+
+export  { getAllEmails,getHobbyByAge,getStudentName};
 
 
