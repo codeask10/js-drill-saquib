@@ -44,6 +44,26 @@ function getNameAndCityByIndex(arr, index){
     return "Data not Found";
 }
 
-export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex};
+//    Implement a loop to access and print the ages of all individuals in the dataset.
+
+function getAllAges(arr){
+    try{
+        if(arr.length===0){
+            console.log("Empty array objects");
+        }
+        else{
+            let allAges=[];
+            for(const i in arr){
+                allAges.push(arr[i].age);
+            }
+            console.log(allAges);
+        }
+    }
+    catch(error){
+        console.log(`Error: ${error}`);
+    }
+}
+
+export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex,getAllAges};
 
 
