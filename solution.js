@@ -29,6 +29,21 @@ function getStudentName(arr,live){
     return "Name not found";
 }
 
-export  { getAllEmails,getHobbyByAge,getStudentName};
+//    Write a function that accesses and logs the name and city of the individual at the index position 3 in the dataset.
+function getNameAndCityByIndex(arr, index){
+    let ans=[];
+    if(index>arr.length){
+        return "Out of bound";
+    }
+    for(let i =0;i<arr.length;i++){
+        if(i===index){
+            ans.push({"name":arr[i].name,"city":arr[i].city});
+            return ans;
+        }
+    }
+    return "Data not Found";
+}
+
+export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex};
 
 
