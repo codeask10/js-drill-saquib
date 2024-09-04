@@ -84,6 +84,18 @@ function getFirstHobby(arr){
 }
 
 
-export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex,getAllAges,getFirstHobby};
+//    Write a function that accesses and prints the names and email addresses of individuals aged 25.
+
+function getNameAndEmailByAge(arr,age){
+    for(let i =0;i<arr.length;i++){
+        if(arr[i].age===age){
+            console.log(`Name: ${arr[i].name} and Email: ${arr[i].email}`);
+            return;
+        }
+    }
+    console.log(`Age:${age} is not found`);
+}
+
+export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex,getAllAges,getFirstHobby, getNameAndEmailByAge};
 
 
