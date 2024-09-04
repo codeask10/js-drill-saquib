@@ -1,5 +1,5 @@
 import arrayOfObjects from './person.js'
-import {getAllEmails,getHobbyByAge, getStudentName} from "./solution.js";
+import {getAllEmails,getHobbyByAge, getStudentName, getNameAndCityByIndex} from "./solution.js";
 
 
 //   Test cases
@@ -12,6 +12,13 @@ console.log(getHobbyByAge(arrayOfObjects,100));  //Specific age not found
 console.log(getStudentName(arrayOfObjects,"Australia")); // Hannah
 console.log(getStudentName(arrayOfObjects,"Canada")); //Name not found
 console.log(getStudentName()); //Name not found
+
+
+console.log(getNameAndCityByIndex(arrayOfObjects,3));  // [ { name: 'David', city: 'Berlin' } ]
+console.log(getNameAndCityByIndex(arrayOfObjects,5));  // [ { name: 'Frank', city: 'Los Angeles' } ]
+console.log(getNameAndCityByIndex([],4));    //Out of bound
+console.log(getNameAndCityByIndex([],0));     //Data not Found
+
 
 
 
