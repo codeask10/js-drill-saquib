@@ -96,6 +96,23 @@ function getNameAndEmailByAge(arr,age){
     console.log(`Age:${age} is not found`);
 }
 
-export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex,getAllAges,getFirstHobby, getNameAndEmailByAge};
+//    Implement a loop to access and log the city and country of each individual in the dataset.
+
+function getAllCityAndCountry(arr){
+    if(!arr){
+        console.log("Invalid Dataset");
+    }
+    else if(arr.length===0){
+        console.log("Empty dataset");
+    }
+    else{
+        let i =0;
+        while(i<arr.length){
+            console.log(`City: ${arr[i].city} and Country: ${arr[i].country}`);
+            i++;
+        }
+    }      
+}
+export  { getAllEmails,getHobbyByAge,getStudentName,getNameAndCityByIndex,getAllAges,getFirstHobby, getNameAndEmailByAge,getAllCityAndCountry};
 
 
