@@ -43,12 +43,12 @@ function getAllUserStayingInGermany(users, country) {
             }
         }
     }
-    if (flag === false) return "No property called nationality in user object";
+    if (flag === false) return "No property called Interest in user object";
     return ans.length !== 0 ? ans : "Not Found";
 }
 
 //  Q3 Find all users with masters Degree.
-function getAllUsersInDegree(users,qualification){
+function getAllUsersInDegree(users, qualification) {
     if (!users) {
         return "Invalid User Object";
     }
@@ -69,4 +69,28 @@ function getAllUsersInDegree(users,qualification){
     return ans.length !== 0 ? ans : "Not Found";
 }
 
-export { getAllUserInterestedInVideoGames, getAllUserStayingInGermany ,getAllUsersInDegree};
+//Q4    Group users based on their Programming language mentioned in their designation.
+
+function getProgrammingBasedGroupUser(users) {
+    let ans = {};
+    for (const user1 in users) {
+        let subject1 = users[user1].desgination.replace(/Senior|Junior|Intern|Developer|-/g, "").trim();
+        console.log(subject1);
+        for (const user2 in users) {
+            let subject2 = users[user1].desgination.replace(/Senior|Junior|Intern|Developer|-/g, "").trim();
+            if (subject1 === subject2) {
+                if (!ans.hasOwnProperty(subject1)) {
+                    ans[subject1] = new Array(user1);
+                } else {
+                    if (ans[subject1].indexOf(user1) === -1) {
+                        ans[subject1].push(user1);
+                    }
+                }
+            }
+
+        }
+    }
+    return ans;
+}
+
+export { getAllUserInterestedInVideoGames, getAllUserStayingInGermany,getAllUsersInDegree,getProgrammingBasedGroupUser};
