@@ -100,5 +100,5 @@ const arrayOfObjects = [
      isStudent: true
   }
 ]; 
-export default arrayOfObjects;
+module.export = arrayOfObjects;
 
