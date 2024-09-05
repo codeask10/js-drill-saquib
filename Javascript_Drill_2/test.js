@@ -1,5 +1,5 @@
 import users from './user.js';
-import {getAllUserInterestedInVideoGames, getAllUserStayingInGermany,getAllUsersInDegree} from './solution.js';
+import {getAllUserInterestedInVideoGames, getAllUserStayingInGermany,getAllUsersInDegree,getProgrammingBasedGroupUser} from './solution.js';
 
 const dummyObject={
     "John": {
@@ -39,4 +39,6 @@ console.log(getAllUserStayingInGermany());  //Invalid User Object
 console.log(getAllUsersInDegree(users,"Masters")); // ['John', 'Rob']
 console.log(getAllUsersInDegree(users,"kldfdaf")); // Not Found
 
+//  Q4 Group users based on their Programming language mentioned in their designation.
 
+console.log(getProgrammingBasedGroupUser(users)); //{Golang: [ 'John', 'Ron' ],Javascript: [ 'Wanda', 'Rob' ], Python:['Pike' ]}
