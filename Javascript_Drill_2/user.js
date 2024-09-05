@@ -35,15 +35,5 @@ const users = {
         nationality: "Germany"
     }
 }
-let ans=[];
-for(const obj in users){
-    for(let i =0;i<users[obj].interests.length;i++){
-        if(users[obj].interests[i].toLowerCase().includes("video game")){
-            console.log(obj);
-            ans.push(obj);
-        }
-    }
-
-}
-console.log(ans);
+export default users;
 
