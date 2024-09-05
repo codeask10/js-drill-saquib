@@ -1,5 +1,5 @@
 import users from './user.js';
-import {getAllUserInterestedInVideoGames} from './solution.js';
+import {getAllUserInterestedInVideoGames, getAllUserStayingInGermany} from './solution.js';
 
 const dummyObject={
     "John": {
@@ -21,7 +21,15 @@ const dummyObject={
 
 //    Q1 Find all users who are interested in playing video games.
 
-console.log(getAllUserInterestedInVideoGames(users));  //['John', 'Ron']
-console.log(getAllUserInterestedInVideoGames(undefined));  //Invalid User Object
-console.log(getAllUserInterestedInVideoGames(dummyObject)); // Empty user Object
-console.log(getAllUserInterestedInVideoGames(25)); // Not Found
+// console.log(getAllUserInterestedInVideoGames(users));  //['John', 'Ron']
+// console.log(getAllUserInterestedInVideoGames(undefined));  //Invalid User Object
+// console.log(getAllUserInterestedInVideoGames(dummyObject)); // Empty user Object
+// console.log(getAllUserInterestedInVideoGames(25)); // Not Found
+
+//  Q2 Find all users staying in Germany.
+
+console.log(getAllUserStayingInGermany(users, "Germany")); //['Wanda', 'Pike']
+console.log(getAllUserStayingInGermany(users, "UK")); //  ['Ron']
+console.log(getAllUserStayingInGermany(users, "dasfermany"));  // Not Found
+console.log(getAllUserStayingInGermany(users,123));  //Not Found
+console.log(getAllUserStayingInGermany());  //Invalid User Object
