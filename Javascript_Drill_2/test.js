@@ -1,5 +1,5 @@
 import users from './user.js';
-import {getAllUserInterestedInVideoGames, getAllUserStayingInGermany} from './solution.js';
+import {getAllUserInterestedInVideoGames, getAllUserStayingInGermany,getAllUsersInDegree} from './solution.js';
 
 const dummyObject={
     "John": {
@@ -19,12 +19,12 @@ const dummyObject={
 
 // ----------------------> Test Case <--------------------------------------------- 
 
-//    Q1 Find all users who are interested in playing video games.
+//  Q1 Find all users who are interested in playing video games.
 
-// console.log(getAllUserInterestedInVideoGames(users));  //['John', 'Ron']
-// console.log(getAllUserInterestedInVideoGames(undefined));  //Invalid User Object
-// console.log(getAllUserInterestedInVideoGames(dummyObject)); // Empty user Object
-// console.log(getAllUserInterestedInVideoGames(25)); // Not Found
+console.log(getAllUserInterestedInVideoGames(users));  //['John', 'Ron']
+console.log(getAllUserInterestedInVideoGames(undefined));  //Invalid User Object
+console.log(getAllUserInterestedInVideoGames(dummyObject)); // Empty user Object
+console.log(getAllUserInterestedInVideoGames(25)); // Not Found
 
 //  Q2 Find all users staying in Germany.
 
@@ -33,3 +33,10 @@ console.log(getAllUserStayingInGermany(users, "UK")); //  ['Ron']
 console.log(getAllUserStayingInGermany(users, "dasfermany"));  // Not Found
 console.log(getAllUserStayingInGermany(users,123));  //Not Found
 console.log(getAllUserStayingInGermany());  //Invalid User Object
+
+//Q3     Find all users with masters Degree.
+
+console.log(getAllUsersInDegree(users,"Masters")); // ['John', 'Rob']
+console.log(getAllUsersInDegree(users,"kldfdaf")); // Not Found
+
+
