@@ -55,4 +55,27 @@ function getSortedCarModelsAlphabetically(inventories) {
     console.log(sorted);
 }
 
-export { getCarById, getLastCarDetails, getSortedCarModelsAlphabetically };
+// ==== Solution #4 ====
+// The accounting team needs all the years from every car on the lot. Execute a function that will return an array from the dealer data containing only the car years and log the result in the console as it was returned.
+
+function getCarYears(inventory){
+    if (!inventory) {
+        return "Invalid Inventory dataset";
+    }
+    if (inventory.length === 0) {
+        return "Empty Inventory";
+    }
+    let arr = [];
+    let flag = false;
+    for (const i in inventory) {
+        if (inventory[i].hasOwnProperty("car_year")) {
+            flag = true;
+            arr.push(inventory[i].car_year); 
+        }
+    }
+    if(flag===false){
+        return "car_year property not found";
+    }
+    return arr.length>=1 ? arr:"Not Found";
+}
+export { getCarById, getLastCarDetails, getSortedCarModelsAlphabetically, getCarYears };
