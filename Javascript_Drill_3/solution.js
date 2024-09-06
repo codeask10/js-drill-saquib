@@ -37,7 +37,7 @@ function getLastCarDetails(inventories) {
     return inventories[index];
 }
 
-// ==== Problem #3 ====
+// ==== Solution #3 ====
 // The marketing team wants the car models listed alphabetically on the website. Execute a function to Sort all the car model names into alphabetical order and log the results in the console as it was returned.
 function getSortedCarModelsAlphabetically(inventories) {
     let arr = [];
@@ -101,4 +101,30 @@ function getCarsBefore2000(inventory){
     }
     return arr.length>=1 ? arr:"Not Found";
 }
-export { getCarById, getLastCarDetails, getSortedCarModelsAlphabetically, getCarYears , getCarsBefore2000};
+
+// ==== Solution #6 ====
+// A buyer is interested in seeing only BMW and Audi cars within the inventory.  Execute a function and return an array that only contains BMW and Audi cars.  Once you have the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
+function getBMWAndAudi(inventory){
+    if (!inventory) {
+        return "Invalid Inventory dataset";
+    }
+    if (inventory.length === 0) {
+        return "Empty Inventory";
+    }
+    let bmwAndAudi = [];
+    let flag = false;
+    for (const i in inventory) {
+        if (inventory[i].hasOwnProperty("car_make")) {
+            flag = true;
+            if (inventory[i].car_make === "BMW" || inventory[i].car_make === "Audi"){
+                bmwAndAudi.push(inventory[i]); 
+            }
+        }
+    }
+    if(flag===false){
+        return "car_make property not found";
+    }
+    return bmwAndAudi.length>=1 ? bmwAndAudi:"Not Found";
+}
+
+export { getCarById, getLastCarDetails, getSortedCarModelsAlphabetically, getCarYears , getCarsBefore2000,getBMWAndAudi};
