@@ -1,5 +1,5 @@
 import inventory from './car.js';
-import { getCarById, getLastCarDetails,getSortedCarModelsAlphabetically,getCarYears} from './solution.js';
+import { getCarById, getLastCarDetails,getSortedCarModelsAlphabetically,getCarYears, getCarsBefore2000 } from './solution.js';
 
 //------------------------> ### Test Case ### <----------------------------------
 
@@ -38,3 +38,13 @@ if (typeof carYear === 'array' && carYear !== null) {
 } else {
     console.log(carYear); // Handle the error message returned
 }
+
+// ==== Problem #5 ====
+// The car lot manager needs to find out how many cars are older than the year 2000. Using the array you just obtained from the previous problem, find out how many cars were made before the year 2000 and return the array of older cars and log its length.
+const carBefore2000= getCarsBefore2000(inventory)
+if (typeof carBefore2000 === 'array' && carBefore2000 !== null) {
+    console.log(carBefore2000)
+} else {
+    console.log(carBefore2000); // Handle the error message returned
+}
+
