@@ -78,4 +78,27 @@ function getCarYears(inventory){
     }
     return arr.length>=1 ? arr:"Not Found";
 }
-export { getCarById, getLastCarDetails, getSortedCarModelsAlphabetically, getCarYears };
+
+function getCarsBefore2000(inventory){
+    if (!inventory) {
+        return "Invalid Inventory dataset";
+    }
+    if (inventory.length === 0) {
+        return "Empty Inventory";
+    }
+    let arr = [];
+    let flag = false;
+    for (const i in inventory) {
+        if (inventory[i].hasOwnProperty("car_year")) {
+            flag = true;
+            if(inventory[i].car_year<2000){
+                arr.push(inventory[i].car_year); 
+            }
+        }
+    }
+    if(flag===false){
+        return "car_year property not found";
+    }
+    return arr.length>=1 ? arr:"Not Found";
+}
+export { getCarById, getLastCarDetails, getSortedCarModelsAlphabetically, getCarYears , getCarsBefore2000};
