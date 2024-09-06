@@ -1,5 +1,5 @@
 import inventory from './car.js';
-import { getCarById, getLastCarDetails,getSortedCarModelsAlphabetically,getCarYears, getCarsBefore2000 } from './solution.js';
+import { getCarById, getLastCarDetails,getSortedCarModelsAlphabetically,getCarYears, getCarsBefore2000, getBMWAndAudi } from './solution.js';
 
 //------------------------> ### Test Case ### <----------------------------------
 
@@ -48,3 +48,12 @@ if (typeof carBefore2000 === 'array' && carBefore2000 !== null) {
     console.log(carBefore2000); // Handle the error message returned
 }
 
+// ==== Problem #6 ====
+// A buyer is interested in seeing only BMW and Audi cars within the inventory.  Execute a function and return an array that only contains BMW and Audi cars.  Once you have the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
+
+const BMWAndAudi= getBMWAndAudi(inventory)
+if (typeof BMWAndAudi === 'array' && BMWAndAudi !== null) {
+    console.log(JSON.stringify(BMWAndAudi, null, 2));
+} else {
+    console.log(BMWAndAudi); // Handle the error message returned
+}
