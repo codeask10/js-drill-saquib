@@ -59,4 +59,22 @@ function pairs(obj) {
     return arr;
 }
 
-export { keys, values, mapObject, pairs };  
+/* STRETCH PROBLEMS */
+
+function invert(obj) {
+    // Returns a copy of the object where the keys have become the values and the values the keys.
+    // Assume that all of the object's values will be unique and string serializable.
+    // http://underscorejs.org/#invert
+    if (typeof obj !== 'object' && !Array.isArray(obj) || !obj) {
+        return "Invalid Object Input";
+    }
+    let key = keys(obj);
+    let value = values(obj);
+    let object = {};
+    for (let i = 0; i < key.length; i++) {
+        object[value[i]] = key[i];
+    }
+    return object
+}
+
+export { keys, values, mapObject, pairs, invert };  
