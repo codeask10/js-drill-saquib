@@ -96,4 +96,23 @@ function filter(elements, cb) {
   console.log(arr);
 }
 
-export { each, map, reduce, find, filter };
+function flatten(elements) {
+  // Flattens a nested array (the nesting can be to any depth).
+  // Hint: You can solve this using recursion.
+  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  let arr = [];
+  function recursiveFlatten(element) {
+    for (let i = 0; i < element.length; i++) {
+      if (Array.isArray(element[i])) {
+        recursiveFlatten(element[i]);
+      }
+      else {
+        arr.push(element[i]);
+      }
+    }
+  }
+  recursiveFlatten(elements)
+  console.log(arr);
+}
+
+export { each, map, reduce, find, filter, flatten };
