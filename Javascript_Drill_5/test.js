@@ -1,6 +1,6 @@
-import { keys, mapObject, values } from "./objects.js";
+import { keys, mapObject, pairs, values } from "./objects.js";
 
-let testObject ={ name: "Bruce Wayne", age: 36, location: "Gotham" }; 
+let testObject = { name: "Bruce Wayne", age: 36, location: "Gotham" };
 
 console.log(keys(testObject));
 
@@ -10,5 +10,6 @@ console.log(values(testObject));
 function mapCallbackFn(value, key, obj) {
     return value + 5;
 }
-console.log(mapObject(testObject,mapCallbackFn));
+console.log(mapObject(testObject, mapCallbackFn));
 
+console.log(pairs(testObject));
