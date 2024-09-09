@@ -28,4 +28,20 @@ function values(obj) {
     return arr;
 }
 
-export { keys, values };  
+function mapObject(obj, cb) {
+    // Like map for arrays, but for objects. Transform the value of each property in turn by passing it to the callback function.
+    // http://underscorejs.org/#mapObject
+    if (typeof obj !== 'object' && !Array.isArray(obj)) {
+        return "Invalid Object Input";
+    }
+    let object = {};
+    let key = keys(obj);
+    let len = key.length;
+    for (let i = 0; i < len; i++) {
+        object[key[i]] = cb(obj[key[i]], key[i], obj);
+    }
+    return object
+
+}
+
+export { keys, values, mapObject };  
