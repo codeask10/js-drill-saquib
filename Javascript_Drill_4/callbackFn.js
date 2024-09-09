@@ -8,6 +8,12 @@ function mapCallbackFn(num, i) {
 
 function reduceCallbackFn(accumulator, num) {
     return accumulator + num;
-  }
+}
 
-export {eachCallbackFn,mapCallbackFn,reduceCallbackFn} ;
+function findCallbackFn(num) {
+    if (num >= 4) {
+        return num;
+    }
+}
+
+export { eachCallbackFn, mapCallbackFn, reduceCallbackFn,findCallbackFn };

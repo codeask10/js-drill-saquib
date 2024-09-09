@@ -32,7 +32,7 @@ function map(elements, cb) {
   if (!Array.isArray) {
     return "Invalid Array";
   }
-  let arr=[];
+  let arr = [];
   for (let i = 0; i < elements.length; i++) {
     arr.push(cb(elements[i], i, elements));
   }
@@ -49,16 +49,35 @@ function reduce(elements, cb, startingValue) {
   if (!Array.isArray(elements)) {
     return "Invalid Array Input";
   }
-  let index =0;
+  let index = 0;
   if (!startingValue) {
     startingValue = elements[0];
-    index=1;
+    index = 1;
   }
   for (let i = index; i < elements.length; i++) {
     startingValue = cb(startingValue, elements[i], i, elements);
   }
   console.log(startingValue);
-  
+
 }
 
-export {each,map,reduce};
+//The first element in the array that satisfies the provided testing function. Otherwise, undefined is returned. 
+function find(elements, cb) {
+  // Do NOT use .includes, to complete this function.
+  // Look through each value in `elements` and pass each element to `cb`.
+  // If `cb` returns `true` then return that element.
+  // Return `undefined` if no elements pass the truth test.
+  if (!Array.isArray(elements)) {
+    return "Invalid Array";
+  }
+  let found = undefined;
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i], i, elements)) {
+      found = cb(elements[i], i, elements);
+      break;
+    }
+  }
+  console.log(found);
+}
+
+export { each, map, reduce, find };
