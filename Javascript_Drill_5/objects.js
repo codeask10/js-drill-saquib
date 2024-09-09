@@ -77,4 +77,19 @@ function invert(obj) {
     return object
 }
 
-export { keys, values, mapObject, pairs, invert };  
+function defaults(obj, defaultProps) {
+    // Fill in undefined properties that match properties on the `defaultProps` parameter object.
+    // Return `obj`.
+    // http://underscorejs.org/#defaults
+    if (typeof obj !== 'object' && !Array.isArray(obj) || !obj) {
+        return "Invalid Object Input";
+    }
+    for (const o in defaultProps) {
+        if (!obj.hasOwnProperty(o)) {
+            obj[o] = defaultProps[o];
+        }
+    }
+    return obj;
+}
+
+export { keys, values, mapObject, pairs, invert, defaults };  
