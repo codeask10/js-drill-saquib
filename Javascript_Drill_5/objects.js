@@ -44,4 +44,19 @@ function mapObject(obj, cb) {
 
 }
 
-export { keys, values, mapObject };  
+function pairs(obj) {
+    // Convert an object into a list of [key, value] pairs.
+    // http://underscorejs.org/#pairs
+    if (typeof obj !== 'object' && !Array.isArray(obj)) {
+        return "Invalid Object Input";
+    }
+    let key = keys(obj);
+    let value = values(obj);
+    let arr = [];
+    for (let i = 0; i < key.length; i++) {
+        arr.push([key[i], value[i]]);
+    }
+    return arr;
+}
+
+export { keys, values, mapObject, pairs };  
