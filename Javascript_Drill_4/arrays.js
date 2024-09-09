@@ -32,11 +32,33 @@ function map(elements, cb) {
   if (!Array.isArray) {
     return "Invalid Array";
   }
-
+  let arr=[];
   for (let i = 0; i < elements.length; i++) {
-    cb(elements[i], i, elements);
+    arr.push(cb(elements[i], i, elements));
   }
-  elements.length > 0 ? console.log(elements) : "";
+  arr.length > 0 ? console.log(arr) : "";
 }
 
-export {each,map};
+function reduce(elements, cb, startingValue) {
+  // Do NOT use .reduce to complete this function.
+  // How reduce works: A reduce function combines all elements into a single value going from left to right.
+  // Elements will be passed one by one into `cb` along with the `startingValue`.
+  // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
+  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+
+  if (!Array.isArray(elements)) {
+    return "Invalid Array Input";
+  }
+  let index =0;
+  if (!startingValue) {
+    startingValue = elements[0];
+    index=1;
+  }
+  for (let i = index; i < elements.length; i++) {
+    startingValue = cb(startingValue, elements[i], i, elements);
+  }
+  console.log(startingValue);
+  
+}
+
+export {each,map,reduce};
