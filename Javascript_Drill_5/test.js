@@ -1,4 +1,4 @@
-import { keys, mapObject, pairs, values } from "./objects.js";
+import { invert, keys, mapObject, pairs, values } from "./objects.js";
 
 let testObject = { name: "Bruce Wayne", age: 36, location: "Gotham" };
 
@@ -13,3 +13,5 @@ function mapCallbackFn(value, key, obj) {
 console.log(mapObject(testObject, mapCallbackFn));
 
 console.log(pairs(testObject));
+
+console.log(invert(testObject));
