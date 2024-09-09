@@ -16,4 +16,10 @@ function findCallbackFn(num) {
     }
 }
 
-export { eachCallbackFn, mapCallbackFn, reduceCallbackFn,findCallbackFn };
+function filterCallbackFn(element) {
+    if (element % 2 === 0) {
+        return element;
+    }
+}
+
+export { eachCallbackFn, mapCallbackFn, reduceCallbackFn, findCallbackFn ,filterCallbackFn};
