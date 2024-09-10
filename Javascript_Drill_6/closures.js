@@ -27,4 +27,18 @@ function limitFunctionCallCount(cb, n) {
     };
 }
 
-export { counterFactory,limitFunctionCallCount };
+function cacheFunction(cb) {
+    const cache = {};
+
+    return function cachedCb(num) {
+        if (num in cache) {
+            return `Returning cached result: ${cache[num]}`
+        } else {
+            const result = cb(num);
+            cache[num] = result;
+            return `Calculating result: ${result}`;
+        }
+    };
+}
+
+export { counterFactory, limitFunctionCallCount, cacheFunction };
