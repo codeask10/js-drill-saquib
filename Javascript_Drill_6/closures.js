@@ -13,4 +13,18 @@ function counterFactory(value) {
     return object
 }
 
-export {counterFactory};
+function limitFunctionCallCount(cb, n) {
+    let callCount = 0; // Track how many times the function has been called
+
+    return function (val) { // Return a new function
+        if (callCount < n) { // Check if the limit has been reached
+            callCount++; // Increment the call count
+            return cb(val); // Call the callback function with any arguments
+        }
+        else {
+            return "Null: limit Reached";
+        }
+    };
+}
+
+export { counterFactory,limitFunctionCallCount };
