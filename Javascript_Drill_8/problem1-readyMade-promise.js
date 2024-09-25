@@ -24,6 +24,7 @@ function createfile(dirPath, noOfJSONFiles) {
     })
     .catch((err) => {
       console.error("Error occurred during directory creation:", err);
+      throw err;
     });
 }
 
@@ -44,11 +45,13 @@ function deleteFiles(dirPath) {
             })
             .catch((error) => {
               console.error("Error occurred during directory deletion:", error);
+              throw error;
             });
         });
     })
     .catch((err) => {
       console.error("Error occurred during file reading or directory deletion:", err);
+      throw err;
     });
 }
 

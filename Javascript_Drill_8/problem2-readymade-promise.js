@@ -5,7 +5,7 @@ function readFile(path) {
         .then((data) => {
             return data.toString();
         })
-        .catch((err) => { throw err });
+        .catch((err) => {throw err});
 }
 
 function convertToUpperCase(content) {
@@ -26,7 +26,7 @@ function convertToLowerCaseAndSentence(filePath) {
         .then(() => {
             return newFileName;
         })
-        .catch((err) => { throw err })
+        .catch((err) => {throw err})
 }
 
 function sortContent(filePath) {
@@ -34,10 +34,10 @@ function sortContent(filePath) {
     return fs.readFile(filePath, "utf-8")
         .then((data) => {
             const sorted_data = data.split('\n').sort().join('\n');
-            fs.writeFile(newFileName, sorted_data, "utf-8")
+            fs.writeFile(newFileName, sorted_data, "utf-8").catch((err)=>{throw err});
         })
         .then(() => { return newFileName })
-        .catch((err) => { throw err });
+        .catch((err) => {throw err});
 
 }
 
@@ -63,7 +63,7 @@ function deleteAllFiles(fileName) {
             return "Successfully Deleted All files";
         })
         .catch((err) => {
-            throw err; // Rethrow the error to handle it in the calling code
+            throw  err; // Rethrow the error to handle it in the calling code
         });
 }
 

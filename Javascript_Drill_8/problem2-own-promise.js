@@ -33,6 +33,7 @@ function convertToLowerCaseAndSentence(fileName) {
     return new Promise((resolve, reject) => {
         readFile(fileName)
             .then((data) => {
+                console.log(data);
                 data = data.toLowerCase().split(' ').join('\n');
                 const newFileName = "lowercase-&-Sentence.txt";
                 fs.writeFile(newFileName, data, "utf-8", (err) => {

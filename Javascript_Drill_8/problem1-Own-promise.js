@@ -10,7 +10,7 @@ function createFile(dirPath, noOfFiles) {
         });
         for (let i = 0; i < noOfFiles; i++) {
             const generatedJSonData = generateJsonData();
-            fs.writeFile(`${dirPath1}/Json-File${i + 1}.json`, JSON.stringify(generatedJSonData, null, 2), "utf-8", (err) => {
+            fs.writeFile(`${dirPath}/Json-File${i + 1}.json`, JSON.stringify(generatedJSonData, null, 2), "utf-8", (err) => {
                 if (err) {
                     reject(err);
                 }

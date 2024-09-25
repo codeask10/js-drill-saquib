@@ -1,18 +1,17 @@
 import { createFile, deleteFile } from "../problem1-Own-promise.js";
 
+const dir_name="random-json-data";
+const noOfFiles=3;
+
 console.log("Creating Json file in random-json-data folder.....");
-createFile("random-json-data", 3)
-    .then((res) => {
-        console.log(res);
-        console.log("Deleting Json files from random-json-data folder......");
-        deleteFile("random-json-data")
-            .then((res) => {
-                console.log(res);
-            })
-            .catch((error) => {
-                console.error("Error Occurred during deleting files", error);
-            })
-    })
-    .catch((err) => {
-        console.error("Error Occured", err);
-    });
+createFile(dir_name,noOfFiles)
+.then(()=>{
+    console.log("Deleting Json files from random-json-data folder......");
+    return deleteFile(dir_name);
+})
+.then((message)=>{
+    console.log(message);
+})
+.catch((err)=>{
+    console.error(err);
+})
