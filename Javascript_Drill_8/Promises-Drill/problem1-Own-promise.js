@@ -14,9 +14,10 @@ function createFile(dirPath, noOfFiles) {
                 if (err) {
                     reject(err);
                 }
-                resolve("Succesfully created json file");
             });
+            console.log(`${dirPath}/Json-File${i + 1}.json`)
         }
+        resolve("Succesfully created json file");
     });
 }
 
@@ -53,5 +54,5 @@ function deleteFile(dirPath) {
         })
     })
 }
-export {createFile,deleteFile};
+export { createFile, deleteFile };
 

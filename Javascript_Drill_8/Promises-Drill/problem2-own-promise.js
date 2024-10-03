@@ -7,7 +7,7 @@ function readFile(filePath) {
             if (err) {
                 reject(err);
             }
-            console.log(`Successfully read file: ${filePath}`);
+            console.log(data);
             resolve(data);
         });
     });
@@ -33,16 +33,18 @@ function convertToLowerCaseAndSentence(fileName) {
     return new Promise((resolve, reject) => {
         readFile(fileName)
             .then((data) => {
-                console.log(data);
                 data = data.toLowerCase().split(' ').join('\n');
                 const newFileName = "lowercase-&-Sentence.txt";
                 fs.writeFile(newFileName, data, "utf-8", (err) => {
                     if (err) {
                         reject(err);
                     }
-                    console.log(`Content converted to lowercase and sentence format and saved to: ${newFileName}`);
-                    resolve(newFileName);
                 });
+                return newFileName;
+            })
+            .then((fileName) => {
+                console.log(`Content converted to lowercase and sentence format and saved to: ${fileName}`);
+                resolve(fileName);
             })
             .catch((err) => {
                 reject(err);
@@ -61,14 +63,28 @@ function sortingContent(fileName) {
                     if (err) {
                         reject(err);
                     }
-                    console.log(`Content sorted alphabetically and saved to: ${newFileName}`);
-                    resolve(newFileName);
                 });
+                return newFileName;
+            })
+            .then((fileName) => {
+                console.log(`Content sorted alphabetically and saved to: ${fileName}`);
+                resolve(fileName);
             })
             .catch((err) => {
                 reject(err);
             });
     });
+}
+function deleteFile(filename) {
+    return new Promise((resolve, reject) => {
+        fs.unlink(filename, (err) => {
+            if (err) {
+                reject(err);
+            }
+        })
+        console.log("Deleted files..", filename);
+        resolve();
+    })
 }
 
 // Function to delete all files listed in a text file
@@ -78,24 +94,17 @@ function deleteAllFiles(fileName) {
             .then((data) => {
                 const files = data.split('\n');
                 const promises = files.map((file) => {
-                    return new Promise((resolve, reject) => {
-                        fs.unlink(file, (err) => {
-                            if (err) {
-                                reject(err);
-                            }
-                            console.log(`Deleted file: ${file}`);
-                            resolve();
-                        });
-                    });
-                });
-                Promise.all(promises).then(() => {
-                    resolve("Successfully deleted all files.");
-                });
+                    return deleteFile(file);
+                }); // Directly return the unlink promise
+                return Promise.all(promises); // Return all promises in parallel
+            })
+            .then(() => {
+                resolve("Successfully deleted all files.");
             })
             .catch((err) => {
-                reject(err);
+                console.error("Error occurred while deleting files:", err);
+                throw err;
             });
     });
 }
-
-export{readFile,convertToUpperCase,convertToLowerCaseAndSentence,sortingContent,deleteAllFiles}
+export { readFile, convertToUpperCase, convertToLowerCaseAndSentence, sortingContent, deleteAllFiles }
